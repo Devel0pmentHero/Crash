@@ -5,19 +5,23 @@ A small unit- and pentest library for PHP.
 ``composer require devel0pmenthero/crash``
 
 ## Usage
-Generating tests:
+Note: Any parameters can be specified with a leading capital letter.
 
-``php Crash.php -c[--Create] -p[--path]="./targetdir"``
+### Generating tests
+``php Crash.php -c[--create] -p[--path]="./targetdir"``
 
 Inherited methods can be included via passing an optional "inherit"-parameter.
 
-``php Crash.php -c[--Create] -p[--path]="" -i[--inherit]``
+``php Crash.php -c[--create] -p[--path]="" -i[--inherit]``
 
 Existing test classes can be overwritten by passing an optional "overwrite"-parameter.
 
-``php Crash.php -c[--Create] -p[--path]="" -o[--overwrite]``
+``php Crash.php -c[--create] -p[--path]="" -o[--overwrite]``
 
-Note: Any parameters can be specified with a leading capital letter.
+###Running tests
+``php Crash.php -t[--test] -p[--path]="./targetdir"``
+
+Omitting the path will default to the path stored in the public ``Crash::Tests`` constant.
 
 ## Attributes
 Crash allows the user to control the execution of specific tests via defining custom attributes.
