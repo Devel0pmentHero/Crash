@@ -6,10 +6,15 @@ A small unit- and pentest library for PHP.
 
 ## Usage
 Generating tests:
+
 ``php Crash.php -c[--Create] -p[--path]="./targetdir"``
+
 Inherited methods can be included via passing an optional "inherit"-parameter.
+
 ``php Crash.php -c[--Create] -p[--path]="" -i[--inherit]``
+
 Existing test classes can be overwritten by passing an optional "overwrite"-parameter.
+
 ``php Crash.php -c[--Create] -p[--path]="" -o[--overwrite]``
 
 Note: Any parameters can be specified with a leading capital letter.
