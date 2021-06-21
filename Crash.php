@@ -1,5 +1,5 @@
 <?php
-require_once "vendor/autoload.php";
+require_once __DIR__ . "/../../autoload.php";
 
 $Options = \getopt("tTcCiIoOp::P::", ["test", "Test", "create", "Create", "path::", "Path::", "inherit", "Inherit", "overwrite", "Overwrite"]);
 
