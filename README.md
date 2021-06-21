@@ -18,7 +18,7 @@ Existing test classes can be overwritten by passing an optional "overwrite"-para
 
 ``php Crash.php -c[--create] -p[--path]="" -o[--overwrite]``
 
-###Running tests
+### Running tests
 ``php Crash.php -t[--test] -p[--path]="./targetdir"``
 
 Omitting the path will default to the path stored in the public ``Crash::Tests`` constant.
