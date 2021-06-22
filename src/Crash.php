@@ -24,6 +24,7 @@ class Crash {
      * @return array An array containing information about the results if the executed Tests.
      */
     public static function Test(?string $Path = null): array {
+        $Path  = $Path ?? static::Tests;
         $Tests = [];
         //Search for class files.
         foreach(
@@ -64,15 +65,15 @@ class Crash {
     /**
      * Creates a Test class from a specified class.
      *
-     * @param null|string $Class     The fully qualified class name of the class to create a Test from.
-     * @param bool        $Inherit   Flag indicating whether to include inherited methods as Test cases.
-     * @param bool        $Overwrite Flag indicating whether to overwrite any existing Test class.
+     * @param string $Class     The fully qualified class name of the class to create a Test from.
+     * @param bool   $Inherit   Flag indicating whether to include inherited methods as Test cases.
+     * @param bool   $Overwrite Flag indicating whether to overwrite any existing Test class.
      *
      * @return string|null The fully qualified name of the created Test class; otherwise, null.
      *
-     * @throws \InvalidArgumentException|\ReflectionException Thrown if the specified class doesn't exist.
+     * @throws \InvalidArgumentException Thrown if the specified class doesn't exist.
      */
-    public static function Create(?string $Class = null, bool $Inherit = false, bool $Overwrite = false): ?string {
+    public static function Create(string $Class, bool $Inherit = false, bool $Overwrite = false): ?string {
         if(!\class_exists($Class)) {
             throw new \InvalidArgumentException("Class \"{$Class}\" doesn't exist!");
         }
@@ -257,8 +258,12 @@ class Crash {
      * @param bool   $Overwrite Flag indicating whether to overwrite any existing Test class.
      *
      * @return array An array containing the created Test classes.
+     * @throws \InvalidArgumentException Thrown if the directory of the path doesn't exist.
      */
     public static function CreateFromPath(string $Path, bool $Inherit = false, bool $Overwrite = false): array {
+        if(!\is_dir($Path)) {
+            throw new InvalidArgumentException("Directory \"{$Path}\" doesn't exist!");
+        }
         $Tests = [];
         \ob_start();
         $Classes = \get_declared_classes();
