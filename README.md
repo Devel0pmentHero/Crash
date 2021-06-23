@@ -11,8 +11,21 @@ A small unit- and pentest library for PHP.
 Note: Any parameters can be specified with a leading capital letter.
 
 ### Generating tests
+
+#### Single classes
+
 ```php
-Crash::Create("./targetdir");
+Crash::Create(Subject::class, true, false);
+```
+
+```bash
+php Crash.php -c[--create] --class="Subject"
+```
+
+#### Directories
+
+```php
+Crash::CreateFromPath("./targetdir", true, false);
 ```
 
 ```bash
@@ -36,6 +49,7 @@ php Crash.php -c[--create] -p[--path]="" -o[--overwrite]
 ```php
 Crash::Test("./targetdir");
 ```
+
 ```bash
 php Crash.php -t[--test] -p[--path]="./targetdir"
 ```
