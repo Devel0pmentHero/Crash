@@ -10,7 +10,7 @@ if(isset($Options["t"]) || isset($Options["T"]) || isset($Options["Test"]) || is
     $Overwrite = isset($Options["o"]) || isset($Options["O"]) || isset($Options["overwrite"]) || isset($Options["Overwrite"]);
     if(isset($Options["Class"]) || isset($Options["class"])) {
         print "Created class:" . \PHP_EOL;
-        print \Crash::Create($Options["Class"] ?? $Options["class"]) . \PHP_EOL;
+        print \Crash::Create($Options["Class"] ?? $Options["class"], $Inherit, $Overwrite) . \PHP_EOL;
         exit;
     }
     print "Created classes:" . \PHP_EOL;
